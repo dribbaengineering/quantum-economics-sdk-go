@@ -1,0 +1,2454 @@
+{
+	"info": {
+		"_postman_id": "fcf45c0c-1595-44f0-80dd-a1071728fe2c",
+		"name": "API Quantum Economics: ejemplos facturación",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32999456"
+	},
+	"item": [
+		{
+			"name": "Expedir facturas",
+			"item": [
+				{
+					"name": "expedir factura de cliente",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"C\",\r\n    \"series\": \"2025\",\r\n    \"operationDate\": \"21/09/2025\",\r\n    \"customerProviderId\": 2,\r\n    \"totalAmountWithoutTaxes\": 119.00,\r\n    \"totalAmount\": 143.99,\r\n    \"tax\": [\r\n        {\r\n            \"taxType\": \"G\",\r\n            \"taxableBase\": 119.0,\r\n            \"percentage\": 21.0,\r\n            \"amount\": 24.99,\r\n            \"taxSubType\": 0,\r\n            \"taxable\": \"S\",\r\n            \"exempt\": \"N\",\r\n            \"goodServices\": \"S\",\r\n            \"taxInversion\": \"S\",\r\n            \"reason\": \"\",\r\n            \"calification\": \"S1\",\r\n            \"account\": \"70000000\",\r\n            \"clase390\": 0,\r\n            \"includeIS\": true,\r\n            \"codigo\": 21\r\n        }\r\n    ],\r\n    \"line\": [{\r\n        \"description\": \"Commanda 1\",\r\n        \"quantity\": 2.0,\r\n        \"amount\": 143.99,\r\n        \"base\": 70.0,\r\n        \"reference\": null,\r\n        \"referenceType\": null,\r\n        \"discount\": 15,\r\n        \"percentage\": 21.0,\r\n        \"account\": null,\r\n        \"class390\": 0,\r\n        \"taxCode\": 21,\r\n        \"free1\": null,\r\n        \"free2\": null,\r\n        \"free3\": null,\r\n        \"free4\": null,\r\n        \"free5\": null,\r\n        \"free6\": null\r\n        }\r\n    ],\r\n    \"installment\": [\r\n        {\r\n            \"date\": \"15/09/2025\",\r\n            \"amount\": 143.99,\r\n            \"collectedPaid\": 0.0\r\n        }\r\n    ],\r\n    \"descriptionSII\": \"factura de prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/invoice?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"invoice"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "expedir factura de cliente con datos mínimos",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"C\",\r\n    \"customerProviderId\": 2,\r\n    \"totalAmountWithoutTaxes\": 100.00,\r\n    \"totalAmount\": 121.00,\r\n    \"line\": [{\r\n        \"description\": \"Commanda 1\",\r\n        \"quantity\": 1,\r\n        \"amount\": 121,\r\n        \"base\": 100.0,\r\n        \"discount\": 0,\r\n        \"percentage\": 21.0,\r\n        \"class390\": 0,\r\n        \"taxCode\": 21\r\n        }\r\n    ],\r\n    \"installment\": [{\r\n            \"date\": \"22/09/2025\",\r\n            \"amount\": 121.00\r\n        }\r\n    ],\r\n    \"descriptionSII\": \"factura de prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/invoice?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"invoice"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "expedir factura de cliente con datos mínimos con datos de cliente",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"C\",\r\n    \"customerProviderId\": 2,\r\n    \"totalAmountWithoutTaxes\": 100.00,\r\n    \"totalAmount\": 121.00,\r\n    \"line\": [{\r\n        \"description\": \"Commanda 1\",\r\n        \"quantity\": 1,\r\n        \"amount\": 121,\r\n        \"base\": 100.0,\r\n        \"discount\": 0,\r\n        \"percentage\": 21.0,\r\n        \"class390\": 0,\r\n        \"taxCode\": 21\r\n        }\r\n    ],\r\n    \"installment\": [{\r\n            \"date\": \"22/09/2025\",\r\n            \"amount\": 121.00\r\n        }\r\n    ],\r\n    \"descriptionSII\": \"factura de prueba\",\r\n    \"customer\": {\r\n         \"nif\": \"B00000000\",\r\n        \"name\": \"nombre\",\r\n        \"cityCode\": \"08100\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/invoice?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"invoice"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "expedir factura de cliente con datos minimos en formato XML",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<Invoice>\r\n    <type>C</type>\r\n    <customerProviderId>2</customerProviderId>\r\n    <totalAmountWithoutTaxes>100</totalAmountWithoutTaxes>\r\n    <totalAmount>121</totalAmount>\r\n    <line>\r\n        <description>Commanda 1</description>\r\n        <quantity>1</quantity>\r\n        <amount>121</amount>\r\n        <base>100</base>\r\n        <discount>0</discount>\r\n        <percentage>21</percentage>\r\n        <class390>0</class390>\r\n        <taxCode>21</taxCode>\r\n    </line>\r\n    <installment>\r\n        <date>22/09/2025</date>\r\n        <amount>121</amount>\r\n    </installment>\r\n    <descriptionSII>factura de prueba</descriptionSII>\r\n</Invoice>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/invoice?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"invoice"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Registrar facturas",
+			"item": [
+				{
+					"name": "registrar factura de cliente con datos mínimos",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"C\",\r\n    \"customerProviderId\": 2,\r\n    \"seriesAndNumber\": \"2025/001114\",\r\n    \"invoiceDate\": \"06/11/2025\",\r\n    \"totalAmountWithoutTaxes\": 100.00,\r\n    \"totalAmount\": 121.00,\r\n    \"line\": [{\r\n        \"description\": \"Commanda 1\",\r\n        \"quantity\": 1,\r\n        \"amount\": 121,\r\n        \"base\": 100.0,\r\n        \"discount\": 0,\r\n        \"percentage\": 21.0,\r\n        \"class390\": 0,\r\n        \"taxCode\": 21\r\n        }\r\n    ],\r\n    \"installment\": [{\r\n            \"date\": \"06/11/2025\",\r\n            \"amount\": 121.00\r\n        }\r\n    ],\r\n    \"descriptionSII\": \"factura de prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/invoice?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"invoice"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registrar factura de cliente con datos mínimos con datos de cliente",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"C\",\r\n    \"seriesAndNumber\": \"2025/001121\",\r\n    \"invoiceDate\": \"06/11/2025\",\r\n    \"totalAmountWithoutTaxes\": 100.00,\r\n    \"totalAmount\": 121.00,\r\n    \"line\": [{\r\n        \"description\": \"Commanda 1\",\r\n        \"quantity\": 1,\r\n        \"amount\": 121,\r\n        \"base\": 100.0,\r\n        \"discount\": 0,\r\n        \"percentage\": 21.0,\r\n        \"class390\": 0,\r\n        \"taxCode\": 21\r\n        }\r\n    ],\r\n    \"installment\": [{\r\n            \"date\": \"06/11/2025\",\r\n            \"amount\": 121.00\r\n        }\r\n    ],\r\n    \"descriptionSII\": \"factura de prueba\",\r\n    \"customer\": {\r\n         \"nif\": \"B00000003\",\r\n        \"name\": \"nombre\",\r\n        \"cityCode\": \"08100\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/invoice?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"invoice"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registrar factura de cliente con datos mínimos sin líneas",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"C\",\r\n    \"customerProviderId\": 2,\r\n    \"seriesAndNumber\": \"2025/001117\",\r\n    \"invoiceDate\": \"06/11/2025\",\r\n    \"totalAmountWithoutTaxes\": 100.00,\r\n    \"totalAmount\": 121.00,\r\n    \"tax\": [\r\n        {\r\n            \"taxType\": \"G\",\r\n            \"taxableBase\": 100.0,\r\n            \"percentage\": 21.0,\r\n            \"amount\": 21.00,\r\n            \"taxSubType\": 0,\r\n            \"taxable\": \"S\",\r\n            \"exempt\": \"N\",\r\n            \"goodServices\": \"S\",\r\n            \"taxInversion\": \"S\",\r\n            \"reason\": \"\",\r\n            \"calification\": \"S1\",\r\n            \"account\": \"70000000\",\r\n            \"clase390\": 0,\r\n            \"includeIS\": true,\r\n            \"codigo\": 21\r\n        }\r\n    ],\r\n    \"installment\": [{\r\n            \"date\": \"06/11/2025\",\r\n            \"amount\": 121.00\r\n        }\r\n    ],\r\n    \"descriptionSII\": \"factura de prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/invoice?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"invoice"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registrar factura de cliente datos mínimos y documento adjunto",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"invoice\":{\r\n        \"type\": \"C\",\r\n        \"customerProviderId\": 2,\r\n        \"seriesAndNumber\": \"2025/001118\",\r\n        \"invoiceDate\": \"06/11/2025\",\r\n        \"totalAmountWithoutTaxes\": 100.00,\r\n        \"totalAmount\": 121.00,\r\n        \"tax\": [\r\n            {\r\n                \"taxType\": \"G\",\r\n                \"taxableBase\": 100.0,\r\n                \"percentage\": 21.0,\r\n                \"amount\": 21.00,\r\n                \"taxSubType\": 0,\r\n                \"taxable\": \"S\",\r\n                \"exempt\": \"N\",\r\n                \"goodServices\": \"S\",\r\n                \"taxInversion\": \"S\",\r\n                \"reason\": \"\",\r\n                \"calification\": \"S1\",\r\n                \"account\": \"70000000\",\r\n                \"clase390\": 0,\r\n                \"includeIS\": true,\r\n                \"codigo\": 21\r\n            }\r\n        ],        \r\n        \"installment\": [{\r\n                \"date\": \"06/11/2025\",\r\n                \"amount\": 121.00\r\n            }\r\n        ],\r\n        \"descriptionSII\": \"factura de prueba\"\r\n    },\r\n    \"document\":{\r\n        \"document\":\"JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgaHR0cDovL3d3dy5yZXBvcnRsYWIuY29tCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUgo+PgplbmRvYmoKMiAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjEgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iagozIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLUJvbGQgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YyIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKNCAwIG9iago8PAovQ29udGVudHMgOCAwIFIgL01lZGlhQm94IFsgMCAwIDU5NS4yNzU2IDg0MS44ODk4IF0gL1BhcmVudCA3IDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago1IDAgb2JqCjw8Ci9QYWdlTW9kZSAvVXNlTm9uZSAvUGFnZXMgNyAwIFIgL1R5cGUgL0NhdGFsb2cKPj4KZW5kb2JqCjYgMCBvYmoKPDwKL0F1dGhvciAoXChhbm9ueW1vdXNcKSkgL0NyZWF0aW9uRGF0ZSAoRDoyMDI1MTAzMDE1MDk0MyswMCcwMCcpIC9DcmVhdG9yIChcKHVuc3BlY2lmaWVkXCkpIC9LZXl3b3JkcyAoKSAvTW9kRGF0ZSAoRDoyMDI1MTAzMDE1MDk0MyswMCcwMCcpIC9Qcm9kdWNlciAoUmVwb3J0TGFiIFBERiBMaWJyYXJ5IC0gd3d3LnJlcG9ydGxhYi5jb20pIAogIC9TdWJqZWN0IChcKHVuc3BlY2lmaWVkXCkpIC9UaXRsZSAoXChhbm9ueW1vdXNcKSkgL1RyYXBwZWQgL0ZhbHNlCj4+CmVuZG9iago3IDAgb2JqCjw8Ci9Db3VudCAxIC9LaWRzIFsgNCAwIFIgXSAvVHlwZSAvUGFnZXMKPj4KZW5kb2JqCjggMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggNjc2Cj4+CnN0cmVhbQpHYXQ9KTlsSmBOJkFAWmNrKV1cKWU3RThXcjRzdFk6YXRbXCxqbTdOWGtCTD4/clArRTtMYSw4Yk0nck05R0xeR0dpInBYMm5RQyghaUg6WkdJZHNmOkxMSW41UVN0V1RPSjdrRF9Pc1ZeSUlGVEAwRThqKC5FNDImSG0lWFBdJWUoYEFTXz9EQ0xoTk45WEEvZTs5N2cmT2YqNFpAX1ZgVXQqMTlZZDFKYXBcJ0M8Ik5fUkY+UFF1JDtaMCszcUFLSmxqWWBQcDREcGljbyMqZzhGaW4hZjo+VTYwaDNJXWk5T1laRGdZSmBXQjZNPDY7PExtXUVWUkBKWlY+JydiImdvKERmU3NvODwnSkUxS1owVSswO2xTa3RjJWRuZDRsRGknSXM/JCJVWlktXWpATHBST19zPCNYYGZRU2RlPCZJSyghQXRjJFZOMWRRSUhKOSwjQiZjRS5CZlRvU1RPTiRzaiJMKmgvW0pgT111V0okOCZDPi5UazZWSyFBZnBAZnVnREE7Yy5TVDdEaURzMlUpVShTbkY8O1pmNkBnNWZsaF0rXD5QITlxUVtBaFBabm1vWWxePDUtNTElKXNZOyhgTHFUU1xqOlomSztvbGZcQkdASGFNLEllK2I/NURLKiI0IyM1J2opczF0TDZraitdSU5lLTY1aVUma1olJ1BOWjRNIzlSYDszOm1jdERfTnFXVE5EciwvQlxnV1ZoNilnSE9EaEthQ21hWkVPXVQxYmhXazlkZlxiRmlwP2g3Ml5iWztOOFxtTkFbIVZiVmBHZz9eNGVdZFBidGJ0XG9fbFpJMDglXTUiJnMxTEM2YUkwUFdFTXNBWXJlSTMmOzJYL1pqYzE4cz1JTTBJOj5uWUlyTjMidV8hIUc8J20vYX4+ZW5kc3RyZWFtCmVuZG9iagp4cmVmCjAgOQowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDAwNzMgMDAwMDAgbiAKMDAwMDAwMDExNCAwMDAwMCBuIAowMDAwMDAwMjIxIDAwMDAwIG4gCjAwMDAwMDAzMzMgMDAwMDAgbiAKMDAwMDAwMDUzNiAwMDAwMCBuIAowMDAwMDAwNjA0IDAwMDAwIG4gCjAwMDAwMDA4ODcgMDAwMDAgbiAKMDAwMDAwMDk0NiAwMDAwMCBuIAp0cmFpbGVyCjw8Ci9JRCAKWzxiNTZiYmYwYTAzN2UwNjZjODJlMzgzZjEzZWNiMDMxMD48YjU2YmJmMGEwMzdlMDY2YzgyZTM4M2YxM2VjYjAzMTA+XQolIFJlcG9ydExhYiBnZW5lcmF0ZWQgUERGIGRvY3VtZW50IC0tIGRpZ2VzdCAoaHR0cDovL3d3dy5yZXBvcnRsYWIuY29tKQoKL0luZm8gNiAwIFIKL1Jvb3QgNSAwIFIKL1NpemUgOQo+PgpzdGFydHhyZWYKMTcxMgolJUVPRgo=\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/invoice/invoiceWithFile?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"invoice",
+								"invoiceWithFile"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registrar factura de proveedor con datos mínimos",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"P\",\r\n    \"customerProviderId\": 2,\r\n    \"seriesAndNumber\": \"2025/001125\",\r\n    \"invoiceDate\": \"06/11/2025\",\r\n    \"totalAmountWithoutTaxes\": 100.00,\r\n    \"totalAmount\": 121.00,\r\n    \"line\": [{\r\n        \"description\": \"Commanda 1\",\r\n        \"quantity\": 1,\r\n        \"amount\": 121,\r\n        \"base\": 100.0,\r\n        \"discount\": 0,\r\n        \"percentage\": 21.0,\r\n        \"class390\": 0,\r\n        \"taxCode\": 21\r\n        }\r\n    ],\r\n    \"installment\": [{\r\n            \"date\": \"06/11/2025\",\r\n            \"amount\": 121.00\r\n        }\r\n    ],\r\n    \"descriptionSII\": \"factura de prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/invoice?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"invoice"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registrar factura de proveedor con datos mínimos con datos de proveedor",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"P\",\r\n    \"seriesAndNumber\": \"2025/001125\",\r\n    \"invoiceDate\": \"06/11/2025\",\r\n    \"totalAmountWithoutTaxes\": 100.00,\r\n    \"totalAmount\": 121.00,\r\n    \"line\": [{\r\n        \"description\": \"Commanda 1\",\r\n        \"quantity\": 1,\r\n        \"amount\": 121,\r\n        \"base\": 100.0,\r\n        \"discount\": 0,\r\n        \"percentage\": 21.0,\r\n        \"class390\": 0,\r\n        \"taxCode\": 21\r\n        }\r\n    ],\r\n    \"installment\": [{\r\n            \"date\": \"06/11/2025\",\r\n            \"amount\": 121.00\r\n        }\r\n    ],\r\n    \"descriptionSII\": \"factura de prueba\",\r\n    \"provider\": {\r\n        \"nif\": \"B00000009\",\r\n        \"name\": \"prueba\",\r\n        \"cityCode\": \"08100\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/invoice?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"invoice"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registrar factura de proveedor sin lineas",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"P\",\r\n    \"customerProviderId\": 2,\r\n    \"seriesAndNumber\": \"2025/001117\",\r\n    \"invoiceDate\": \"06/11/2025\",\r\n    \"totalAmountWithoutTaxes\": 100.00,\r\n    \"totalAmount\": 121.00,\r\n    \"tax\": [\r\n        {\r\n            \"taxType\": \"G\",\r\n            \"taxableBase\": 100.0,\r\n            \"percentage\": 21.0,\r\n            \"amount\": 21.00,\r\n            \"taxSubType\": 0,\r\n            \"taxable\": \"S\",\r\n            \"exempt\": \"N\",\r\n            \"goodServices\": \"S\",\r\n            \"taxInversion\": \"S\",\r\n            \"reason\": \"\",\r\n            \"calification\": \"S1\",\r\n            \"account\": \"70000000\",\r\n            \"clase390\": 0,\r\n            \"includeIS\": true,\r\n            \"codigo\": 21\r\n        }\r\n    ],\r\n    \"installment\": [{\r\n            \"date\": \"06/11/2025\",\r\n            \"amount\": 121.00\r\n        }\r\n    ],\r\n    \"descriptionSII\": \"factura de prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/invoice?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"invoice"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Facturas usando facturae",
+			"item": [
+				{
+					"name": "Registrar factura de cliente",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var facturae=\r",
+									"'<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>'+\r",
+									"'<fe:Facturae xmlns:fe=\"http://www.facturae.es/Facturae/2009/v3.2/Facturae\" xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\">'+\r",
+									"'    <FileHeader>'+\r",
+									"'        <SchemaVersion>3.2</SchemaVersion>'+\r",
+									"'        <Modality>I</Modality>'+\r",
+									"'        <InvoiceIssuerType>EM</InvoiceIssuerType>'+\r",
+									"'        <Batch>'+\r",
+									"'            <BatchIdentifier>12345</BatchIdentifier>'+\r",
+									"'            <InvoicesCount>1</InvoicesCount>'+\r",
+									"'            <TotalInvoicesAmount>'+\r",
+									"'                <TotalAmount>84.70</TotalAmount>'+\r",
+									"'            </TotalInvoicesAmount>'+\r",
+									"'            <TotalOutstandingAmount>'+\r",
+									"'                <TotalAmount>84.70</TotalAmount>'+\r",
+									"'            </TotalOutstandingAmount>'+\r",
+									"'            <TotalExecutableAmount>'+\r",
+									"'                <TotalAmount>84.70</TotalAmount>'+\r",
+									"'            </TotalExecutableAmount>'+\r",
+									"'            <InvoiceCurrencyCode>EUR</InvoiceCurrencyCode>'+\r",
+									"'        </Batch>'+\r",
+									"'    </FileHeader>'+\r",
+									"'    <Parties>'+\r",
+									"'        <SellerParty>'+\r",
+									"'            <TaxIdentification>'+\r",
+									"'                <PersonTypeCode>J</PersonTypeCode>'+\r",
+									"'                <ResidenceTypeCode>R</ResidenceTypeCode>'+\r",
+									"'                <TaxIdentificationNumber>ESA00000000</TaxIdentificationNumber>'+\r",
+									"'            </TaxIdentification>'+\r",
+									"'            <LegalEntity>'+\r",
+									"'                <CorporateName>PRUEBA EMPRESA</CorporateName>'+\r",
+									"'                <RegistrationData/>'+\r",
+									"'                <AddressInSpain>'+\r",
+									"'                    <Address>CL</Address>'+\r",
+									"'                    <PostCode>08202</PostCode>'+\r",
+									"'                    <Town>SABADELL</Town>'+\r",
+									"'                    <Province>BARCELONA</Province>'+\r",
+									"'                    <CountryCode>ESP</CountryCode>'+\r",
+									"'                </AddressInSpain>'+\r",
+									"'            </LegalEntity>'+\r",
+									"'        </SellerParty>'+\r",
+									"'        <BuyerParty>'+\r",
+									"'            <TaxIdentification>'+\r",
+									"'                <PersonTypeCode>J</PersonTypeCode>'+\r",
+									"'                <ResidenceTypeCode>R</ResidenceTypeCode>'+\r",
+									"'                <TaxIdentificationNumber>ESB00000000</TaxIdentificationNumber>'+\r",
+									"'            </TaxIdentification>'+\r",
+									"'            <LegalEntity>'+\r",
+									"'                <CorporateName>CLIENTE PRUEBAS</CorporateName>'+\r",
+									"'                <AddressInSpain>'+\r",
+									"'                    <Address>CL</Address>'+\r",
+									"'                    <PostCode>08202</PostCode>'+\r",
+									"'                    <Town>SABADELL</Town>'+\r",
+									"'                    <Province>BARCELONA</Province>'+\r",
+									"'                    <CountryCode>ESP</CountryCode>'+\r",
+									"'                </AddressInSpain>'+\r",
+									"'            </LegalEntity>'+\r",
+									"'        </BuyerParty>'+\r",
+									"'    </Parties>'+\r",
+									"'    <Invoices>'+\r",
+									"'        <Invoice>'+\r",
+									"'            <InvoiceHeader>'+\r",
+									"'                <InvoiceNumber>000018</InvoiceNumber>'+\r",
+									"'                <InvoiceSeriesCode>API_TIPO_1</InvoiceSeriesCode>'+\r",
+									"'                <InvoiceDocumentType>FC</InvoiceDocumentType>'+\r",
+									"'                <InvoiceClass>OO</InvoiceClass>'+\r",
+									"'            </InvoiceHeader>'+\r",
+									"'            <InvoiceIssueData>'+\r",
+									"'                <IssueDate>2025-07-17+02:00</IssueDate>'+\r",
+									"'                <OperationDate>2025-07-16+02:00</OperationDate>'+\r",
+									"'                <InvoiceCurrencyCode>EUR</InvoiceCurrencyCode>'+\r",
+									"'                <TaxCurrencyCode>EUR</TaxCurrencyCode>'+\r",
+									"'                <LanguageName>es</LanguageName>'+\r",
+									"'            </InvoiceIssueData>'+\r",
+									"'            <TaxesOutputs>'+\r",
+									"'                <Tax>'+\r",
+									"'                    <TaxTypeCode>01</TaxTypeCode>'+\r",
+									"'                    <TaxRate>21.00</TaxRate>'+\r",
+									"'                    <TaxableBase>'+\r",
+									"'                        <TotalAmount>70.00</TotalAmount>'+\r",
+									"'                    </TaxableBase>'+\r",
+									"'                    <TaxAmount>'+\r",
+									"'                        <TotalAmount>14.70</TotalAmount>'+\r",
+									"'                    </TaxAmount>'+\r",
+									"'                </Tax>'+\r",
+									"'            </TaxesOutputs>'+\r",
+									"'            <InvoiceTotals>'+\r",
+									"'                <TotalGrossAmount>70.00</TotalGrossAmount>'+\r",
+									"'                <TotalGrossAmountBeforeTaxes>70.00</TotalGrossAmountBeforeTaxes>'+\r",
+									"'                <TotalTaxOutputs>14.70</TotalTaxOutputs>'+\r",
+									"'                <TotalTaxesWithheld>0.00</TotalTaxesWithheld>'+\r",
+									"'                <InvoiceTotal>84.70</InvoiceTotal>'+\r",
+									"'                <TotalOutstandingAmount>84.70</TotalOutstandingAmount>'+\r",
+									"'                <TotalExecutableAmount>84.70</TotalExecutableAmount>'+\r",
+									"'            </InvoiceTotals>'+\r",
+									"'            <Items>'+\r",
+									"'                <InvoiceLine>'+\r",
+									"'                    <ItemDescription>Commanda 1</ItemDescription>'+\r",
+									"'                    <Quantity>1.0</Quantity>'+\r",
+									"'                    <UnitOfMeasure>01</UnitOfMeasure>'+\r",
+									"'                    <UnitPriceWithoutTax>70.000000</UnitPriceWithoutTax>'+\r",
+									"'                    <TotalCost>70.000000</TotalCost>'+\r",
+									"'                    <GrossAmount>70.000000</GrossAmount>'+\r",
+									"'                    <TaxesOutputs>'+\r",
+									"'                        <Tax>'+\r",
+									"'                            <TaxTypeCode>01</TaxTypeCode>'+\r",
+									"'                            <TaxRate>21.00</TaxRate>'+\r",
+									"'                            <TaxableBase>'+\r",
+									"'                                 <TotalAmount>70.00</TotalAmount>'+\r",
+									"'                            </TaxableBase>'+\r",
+									"'                        </Tax>'+\r",
+									"'                    </TaxesOutputs>'+\r",
+									"'                    <ArticleCode></ArticleCode>'+\r",
+									"'                </InvoiceLine>'+\r",
+									"'            </Items>'+\r",
+									"'            <PaymentDetails>'+\r",
+									"'                <Installment>'+\r",
+									"'                    <InstallmentDueDate>2025-07-17+02:00</InstallmentDueDate>'+\r",
+									"'                    <InstallmentAmount>84.70</InstallmentAmount>'+\r",
+									"'                    <PaymentMeans>04</PaymentMeans>'+\r",
+									"'                </Installment>'+\r",
+									"'            </PaymentDetails>'+\r",
+									"'        </Invoice>'+\r",
+									"'    </Invoices>'+\r",
+									"'</fe:Facturae>';\r",
+									"var facturaeBase64=Buffer.from(facturae,\"utf-8\").toString('base64');\r",
+									"//console.log(facturaeBase64);\r",
+									"var facturaeFromBase64 = Buffer.from(facturaeBase64, 'base64').toString('utf-8');\r",
+									"//console.log(facturaeFromBase64);\r",
+									"\r",
+									"var data = pm.request.body.raw;\r",
+									"var new_body = data.replace(\"base64String\",facturaeBase64);\r",
+									"let body = {\r",
+									"    mode: 'raw',\r",
+									"    raw: new_body,\r",
+									"    options: {\r",
+									"        raw: {\r",
+									"            language: 'xml'\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"pm.request.body.update(body);\r",
+									"console.log(\"body:\"+pm.request.body.raw);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"facturae\": {\r\n    \"fiscalYear\": 2025,\r\n    \"base64\": \"base64String\",\r\n    \"descriptionSII\": \"descripcion objeto de la factura\"      \r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/contabilidad/api/invoice/invoiceWithFacturae?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"api",
+								"invoice",
+								"invoiceWithFacturae"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar factura de cliente ampliado",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var facturae=\r",
+									"'<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>'+\r",
+									"'<fe:Facturae xmlns:fe=\"http://www.facturae.es/Facturae/2009/v3.2/Facturae\" xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\">'+\r",
+									"'    <FileHeader>'+\r",
+									"'        <SchemaVersion>3.2</SchemaVersion>'+\r",
+									"'        <Modality>I</Modality>'+\r",
+									"'        <InvoiceIssuerType>EM</InvoiceIssuerType>'+\r",
+									"'        <Batch>'+\r",
+									"'            <BatchIdentifier>12345</BatchIdentifier>'+\r",
+									"'            <InvoicesCount>1</InvoicesCount>'+\r",
+									"'            <TotalInvoicesAmount>'+\r",
+									"'                <TotalAmount>84.70</TotalAmount>'+\r",
+									"'            </TotalInvoicesAmount>'+\r",
+									"'            <TotalOutstandingAmount>'+\r",
+									"'                <TotalAmount>84.70</TotalAmount>'+\r",
+									"'            </TotalOutstandingAmount>'+\r",
+									"'            <TotalExecutableAmount>'+\r",
+									"'                <TotalAmount>84.70</TotalAmount>'+\r",
+									"'            </TotalExecutableAmount>'+\r",
+									"'            <InvoiceCurrencyCode>EUR</InvoiceCurrencyCode>'+\r",
+									"'        </Batch>'+\r",
+									"'    </FileHeader>'+\r",
+									"'    <Parties>'+\r",
+									"'        <SellerParty>'+\r",
+									"'            <TaxIdentification>'+\r",
+									"'                <PersonTypeCode>J</PersonTypeCode>'+\r",
+									"'                <ResidenceTypeCode>R</ResidenceTypeCode>'+\r",
+									"'                <TaxIdentificationNumber>ESA00000000</TaxIdentificationNumber>'+\r",
+									"'            </TaxIdentification>'+\r",
+									"'            <LegalEntity>'+\r",
+									"'                <CorporateName>PRUEBA EMPRESA</CorporateName>'+\r",
+									"'                <RegistrationData/>'+\r",
+									"'                <AddressInSpain>'+\r",
+									"'                    <Address>CL</Address>'+\r",
+									"'                    <PostCode>08202</PostCode>'+\r",
+									"'                    <Town>SABADELL</Town>'+\r",
+									"'                    <Province>BARCELONA</Province>'+\r",
+									"'                    <CountryCode>ESP</CountryCode>'+\r",
+									"'                </AddressInSpain>'+\r",
+									"'            </LegalEntity>'+\r",
+									"'        </SellerParty>'+\r",
+									"'        <BuyerParty>'+\r",
+									"'            <TaxIdentification>'+\r",
+									"'                <PersonTypeCode>J</PersonTypeCode>'+\r",
+									"'                <ResidenceTypeCode>R</ResidenceTypeCode>'+\r",
+									"'                <TaxIdentificationNumber>ESB00000000</TaxIdentificationNumber>'+\r",
+									"'            </TaxIdentification>'+\r",
+									"'            <LegalEntity>'+\r",
+									"'                <CorporateName>CLIENTE PRUEBAS</CorporateName>'+\r",
+									"'                <AddressInSpain>'+\r",
+									"'                    <Address>CL</Address>'+\r",
+									"'                    <PostCode>08202</PostCode>'+\r",
+									"'                    <Town>SABADELL</Town>'+\r",
+									"'                    <Province>BARCELONA</Province>'+\r",
+									"'                    <CountryCode>ESP</CountryCode>'+\r",
+									"'                </AddressInSpain>'+\r",
+									"'            </LegalEntity>'+\r",
+									"'        </BuyerParty>'+\r",
+									"'    </Parties>'+\r",
+									"'    <Invoices>'+\r",
+									"'        <Invoice>'+\r",
+									"'            <InvoiceHeader>'+\r",
+									"'                <InvoiceNumber>000016</InvoiceNumber>'+\r",
+									"'                <InvoiceSeriesCode>API_TIPO_2</InvoiceSeriesCode>'+\r",
+									"'                <InvoiceDocumentType>FC</InvoiceDocumentType>'+\r",
+									"'                <InvoiceClass>OO</InvoiceClass>'+\r",
+									"'            </InvoiceHeader>'+\r",
+									"'            <InvoiceIssueData>'+\r",
+									"'                <IssueDate>2025-07-17+02:00</IssueDate>'+\r",
+									"'                <OperationDate>2025-07-16+02:00</OperationDate>'+\r",
+									"'                <InvoiceCurrencyCode>EUR</InvoiceCurrencyCode>'+\r",
+									"'                <TaxCurrencyCode>EUR</TaxCurrencyCode>'+\r",
+									"'                <LanguageName>es</LanguageName>'+\r",
+									"'            </InvoiceIssueData>'+\r",
+									"'            <TaxesOutputs>'+\r",
+									"'                <Tax>'+\r",
+									"'                    <TaxTypeCode>01</TaxTypeCode>'+\r",
+									"'                    <TaxRate>21.00</TaxRate>'+\r",
+									"'                    <TaxableBase>'+\r",
+									"'                        <TotalAmount>70.00</TotalAmount>'+\r",
+									"'                    </TaxableBase>'+\r",
+									"'                    <TaxAmount>'+\r",
+									"'                        <TotalAmount>14.70</TotalAmount>'+\r",
+									"'                    </TaxAmount>'+\r",
+									"'                </Tax>'+\r",
+									"'            </TaxesOutputs>'+\r",
+									"'            <InvoiceTotals>'+\r",
+									"'                <TotalGrossAmount>70.00</TotalGrossAmount>'+\r",
+									"'                <TotalGrossAmountBeforeTaxes>70.00</TotalGrossAmountBeforeTaxes>'+\r",
+									"'                <TotalTaxOutputs>14.70</TotalTaxOutputs>'+\r",
+									"'                <TotalTaxesWithheld>0.00</TotalTaxesWithheld>'+\r",
+									"'                <InvoiceTotal>84.70</InvoiceTotal>'+\r",
+									"'                <TotalOutstandingAmount>84.70</TotalOutstandingAmount>'+\r",
+									"'                <TotalExecutableAmount>84.70</TotalExecutableAmount>'+\r",
+									"'            </InvoiceTotals>'+\r",
+									"'            <Items>'+\r",
+									"'                <InvoiceLine>'+\r",
+									"'                    <ItemDescription>Commanda 1</ItemDescription>'+\r",
+									"'                    <Quantity>1.0</Quantity>'+\r",
+									"'                    <UnitOfMeasure>01</UnitOfMeasure>'+\r",
+									"'                    <UnitPriceWithoutTax>70.000000</UnitPriceWithoutTax>'+\r",
+									"'                    <TotalCost>70.000000</TotalCost>'+\r",
+									"'                    <GrossAmount>70.000000</GrossAmount>'+\r",
+									"'                    <TaxesOutputs>'+\r",
+									"'                        <Tax>'+\r",
+									"'                            <TaxTypeCode>01</TaxTypeCode>'+\r",
+									"'                            <TaxRate>21.00</TaxRate>'+\r",
+									"'                            <TaxableBase>'+\r",
+									"'                                 <TotalAmount>70.00</TotalAmount>'+\r",
+									"'                            </TaxableBase>'+\r",
+									"'                        </Tax>'+\r",
+									"'                    </TaxesOutputs>'+\r",
+									"'                    <ArticleCode></ArticleCode>'+\r",
+									"'                </InvoiceLine>'+\r",
+									"'            </Items>'+\r",
+									"'            <PaymentDetails>'+\r",
+									"'                <Installment>'+\r",
+									"'                    <InstallmentDueDate>2025-07-17+02:00</InstallmentDueDate>'+\r",
+									"'                    <InstallmentAmount>84.70</InstallmentAmount>'+\r",
+									"'                    <PaymentMeans>04</PaymentMeans>'+\r",
+									"'                </Installment>'+\r",
+									"'            </PaymentDetails>'+\r",
+									"'        </Invoice>'+\r",
+									"'    </Invoices>'+\r",
+									"'</fe:Facturae>';\r",
+									"var facturaeBase64=Buffer.from(facturae,\"utf-8\").toString('base64');\r",
+									"//console.log(facturaeBase64);\r",
+									"var facturaeFromBase64 = Buffer.from(facturaeBase64, 'base64').toString('utf-8');\r",
+									"//console.log(facturaeFromBase64);\r",
+									"\r",
+									"var data = pm.request.body.raw;\r",
+									"var new_body = data.replace(\"base64String\",facturaeBase64);\r",
+									"let body = {\r",
+									"    mode: 'raw',\r",
+									"    raw: new_body,\r",
+									"    options: {\r",
+									"        raw: {\r",
+									"            language: 'xml'\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"pm.request.body.update(body);\r",
+									"console.log(\"body:\"+pm.request.body.raw);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"facturae\": {\r\n    \"fiscalYear\": 2025,\r\n    \"base64\": \"base64String\",\r\n    \"descriptionSII\": \"descripcion objeto de la factura\",\r\n    \"extra\": {\r\n        \"projectID\": 1,\r\n        \"projectName\": \"Proyecto 1\",\r\n        \"accounts\": {\r\n            \"invoiceLine\": [\r\n                {\r\n                    \"lineNumber\": 1,\r\n                    \"account\": \"70500000\",\r\n                    \"classIVA\": 80\r\n                }\r\n            ]\r\n        }\r\n    }    \r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/contabilidad/api/invoice/invoiceWithFacturae?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"api",
+								"invoice",
+								"invoiceWithFacturae"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar factura de proveedor ampliado",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var facturae=\r",
+									"'<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>'+\r",
+									"'<fe:Facturae xmlns:fe=\"http://www.facturae.es/Facturae/2009/v3.2/Facturae\" xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\">'+\r",
+									"'    <FileHeader>'+\r",
+									"'        <SchemaVersion>3.2</SchemaVersion>'+\r",
+									"'        <Modality>I</Modality>'+\r",
+									"'        <InvoiceIssuerType>EM</InvoiceIssuerType>'+\r",
+									"'        <Batch>'+\r",
+									"'            <BatchIdentifier>12345</BatchIdentifier>'+\r",
+									"'            <InvoicesCount>1</InvoicesCount>'+\r",
+									"'            <TotalInvoicesAmount>'+\r",
+									"'                <TotalAmount>84.70</TotalAmount>'+\r",
+									"'            </TotalInvoicesAmount>'+\r",
+									"'            <TotalOutstandingAmount>'+\r",
+									"'                <TotalAmount>84.70</TotalAmount>'+\r",
+									"'            </TotalOutstandingAmount>'+\r",
+									"'            <TotalExecutableAmount>'+\r",
+									"'                <TotalAmount>84.70</TotalAmount>'+\r",
+									"'            </TotalExecutableAmount>'+\r",
+									"'            <InvoiceCurrencyCode>EUR</InvoiceCurrencyCode>'+\r",
+									"'        </Batch>'+\r",
+									"'    </FileHeader>'+\r",
+									"'    <Parties>'+\r",
+									"'        <SellerParty>'+\r",
+									"'            <TaxIdentification>'+\r",
+									"'                <PersonTypeCode>J</PersonTypeCode>'+\r",
+									"'                <ResidenceTypeCode>R</ResidenceTypeCode>'+\r",
+									"'                <TaxIdentificationNumber>ESB00000000</TaxIdentificationNumber>'+\r",
+									"'            </TaxIdentification>'+\r",
+									"'            <LegalEntity>'+\r",
+									"'                <CorporateName>PROVEEDOR PRUEBA</CorporateName>'+\r",
+									"'                <AddressInSpain>'+\r",
+									"'                    <Address>CL</Address>'+\r",
+									"'                    <PostCode>08202</PostCode>'+\r",
+									"'                    <Town>SABADELL</Town>'+\r",
+									"'                    <Province>BARCELONA</Province>'+\r",
+									"'                    <CountryCode>ESP</CountryCode>'+\r",
+									"'                </AddressInSpain>'+\r",
+									"'            </LegalEntity>'+\r",
+									"'        </SellerParty>'+\r",
+									"'        <BuyerParty>'+\r",
+									"'            <TaxIdentification>'+\r",
+									"'                <PersonTypeCode>J</PersonTypeCode>'+\r",
+									"'                <ResidenceTypeCode>R</ResidenceTypeCode>'+\r",
+									"'                <TaxIdentificationNumber>ESA00000000</TaxIdentificationNumber>'+\r",
+									"'            </TaxIdentification>'+\r",
+									"'            <LegalEntity>'+\r",
+									"'                <CorporateName>PRUEBA EMPRESA</CorporateName>'+\r",
+									"'                <RegistrationData/>'+\r",
+									"'                <AddressInSpain>'+\r",
+									"'                    <Address>CL</Address>'+\r",
+									"'                    <PostCode>08202</PostCode>'+\r",
+									"'                    <Town>SABADELL</Town>'+\r",
+									"'                    <Province>BARCELONA</Province>'+\r",
+									"'                    <CountryCode>ESP</CountryCode>'+\r",
+									"'                </AddressInSpain>'+\r",
+									"'            </LegalEntity>'+\r",
+									"'        </BuyerParty>'+\r",
+									"'    </Parties>'+\r",
+									"'    <Invoices>'+\r",
+									"'        <Invoice>'+\r",
+									"'            <InvoiceHeader>'+\r",
+									"'                <InvoiceNumber>000003</InvoiceNumber>'+\r",
+									"'                <InvoiceSeriesCode>API_TIPO_2</InvoiceSeriesCode>'+\r",
+									"'                <InvoiceDocumentType>FC</InvoiceDocumentType>'+\r",
+									"'                <InvoiceClass>OO</InvoiceClass>'+\r",
+									"'            </InvoiceHeader>'+\r",
+									"'            <InvoiceIssueData>'+\r",
+									"'                <IssueDate>2025-07-17+02:00</IssueDate>'+\r",
+									"'                <OperationDate>2025-07-16+02:00</OperationDate>'+\r",
+									"'                <InvoiceCurrencyCode>EUR</InvoiceCurrencyCode>'+\r",
+									"'                <TaxCurrencyCode>EUR</TaxCurrencyCode>'+\r",
+									"'                <LanguageName>es</LanguageName>'+\r",
+									"'            </InvoiceIssueData>'+\r",
+									"'            <TaxesOutputs>'+\r",
+									"'                <Tax>'+\r",
+									"'                    <TaxTypeCode>01</TaxTypeCode>'+\r",
+									"'                    <TaxRate>21.00</TaxRate>'+\r",
+									"'                    <TaxableBase>'+\r",
+									"'                        <TotalAmount>70.00</TotalAmount>'+\r",
+									"'                    </TaxableBase>'+\r",
+									"'                    <TaxAmount>'+\r",
+									"'                        <TotalAmount>14.70</TotalAmount>'+\r",
+									"'                    </TaxAmount>'+\r",
+									"'                </Tax>'+\r",
+									"'            </TaxesOutputs>'+\r",
+									"'            <InvoiceTotals>'+\r",
+									"'                <TotalGrossAmount>70.00</TotalGrossAmount>'+\r",
+									"'                <TotalGrossAmountBeforeTaxes>70.00</TotalGrossAmountBeforeTaxes>'+\r",
+									"'                <TotalTaxOutputs>14.70</TotalTaxOutputs>'+\r",
+									"'                <TotalTaxesWithheld>0.00</TotalTaxesWithheld>'+\r",
+									"'                <InvoiceTotal>84.70</InvoiceTotal>'+\r",
+									"'                <TotalOutstandingAmount>84.70</TotalOutstandingAmount>'+\r",
+									"'                <TotalExecutableAmount>84.70</TotalExecutableAmount>'+\r",
+									"'            </InvoiceTotals>'+\r",
+									"'            <Items>'+\r",
+									"'                <InvoiceLine>'+\r",
+									"'                    <ItemDescription>Commanda 1</ItemDescription>'+\r",
+									"'                    <Quantity>1.0</Quantity>'+\r",
+									"'                    <UnitOfMeasure>01</UnitOfMeasure>'+\r",
+									"'                    <UnitPriceWithoutTax>70.000000</UnitPriceWithoutTax>'+\r",
+									"'                    <TotalCost>70.000000</TotalCost>'+\r",
+									"'                    <GrossAmount>70.000000</GrossAmount>'+\r",
+									"'                    <TaxesOutputs>'+\r",
+									"'                        <Tax>'+\r",
+									"'                            <TaxTypeCode>01</TaxTypeCode>'+\r",
+									"'                            <TaxRate>21.00</TaxRate>'+\r",
+									"'                            <TaxableBase>'+\r",
+									"'                                 <TotalAmount>70.00</TotalAmount>'+\r",
+									"'                            </TaxableBase>'+\r",
+									"'                        </Tax>'+\r",
+									"'                    </TaxesOutputs>'+\r",
+									"'                    <ArticleCode></ArticleCode>'+\r",
+									"'                </InvoiceLine>'+\r",
+									"'            </Items>'+\r",
+									"'            <PaymentDetails>'+\r",
+									"'                <Installment>'+\r",
+									"'                    <InstallmentDueDate>2025-07-17+02:00</InstallmentDueDate>'+\r",
+									"'                    <InstallmentAmount>84.70</InstallmentAmount>'+\r",
+									"'                    <PaymentMeans>04</PaymentMeans>'+\r",
+									"'                </Installment>'+\r",
+									"'            </PaymentDetails>'+\r",
+									"'        </Invoice>'+\r",
+									"'    </Invoices>'+\r",
+									"'</fe:Facturae>';\r",
+									"var facturaeBase64=Buffer.from(facturae,\"utf-8\").toString('base64');\r",
+									"//console.log(facturaeBase64);\r",
+									"var facturaeFromBase64 = Buffer.from(facturaeBase64, 'base64').toString('utf-8');\r",
+									"//console.log(facturaeFromBase64);\r",
+									"\r",
+									"var data = pm.request.body.raw;\r",
+									"var new_body = data.replace(\"base64String\",facturaeBase64);\r",
+									"let body = {\r",
+									"    mode: 'raw',\r",
+									"    raw: new_body,\r",
+									"    options: {\r",
+									"        raw: {\r",
+									"            language: 'xml'\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"pm.request.body.update(body);\r",
+									"console.log(\"body:\"+pm.request.body.raw);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"facturae\": {\r\n    \"fiscalYear\": 2025,\r\n    \"base64\": \"base64String\",\r\n    \"descriptionSII\": \"descripcion objeto de la factura\",\r\n    \"extra\": {\r\n        \"projectID\": 1,\r\n        \"projectName\": \"Proyecto 1\",\r\n        \"dateIVA\": \"30/06/2025\",        \r\n        \"accounts\": {\r\n            \"invoiceLine\": [\r\n                {\r\n                    \"lineNumber\": 1,\r\n                    \"account\": \"60100000\",\r\n                    \"classIVA\": 42\r\n                }\r\n            ]\r\n        }\r\n    }    \r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/contabilidad/api/invoice/invoiceWithFacturae?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"api",
+								"invoice",
+								"invoiceWithFacturae"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Expedir factura de cliente",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var facturae=\r",
+									"'<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>'+\r",
+									"'<fe:Facturae xmlns:fe=\"http://www.facturae.es/Facturae/2009/v3.2/Facturae\" xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\">'+\r",
+									"'    <FileHeader>'+\r",
+									"'        <SchemaVersion>3.2.2</SchemaVersion>'+\r",
+									"'        <Modality>I</Modality>'+\r",
+									"'        <InvoiceIssuerType>EM</InvoiceIssuerType>'+\r",
+									"'        <Batch>'+\r",
+									"'            <BatchIdentifier>12345</BatchIdentifier>'+\r",
+									"'            <InvoicesCount>1</InvoicesCount>'+\r",
+									"'            <TotalInvoicesAmount>'+\r",
+									"'                <TotalAmount>84.7</TotalAmount>'+\r",
+									"'            </TotalInvoicesAmount>'+\r",
+									"'            <TotalOutstandingAmount>'+\r",
+									"'                <TotalAmount>84.7</TotalAmount>'+\r",
+									"'            </TotalOutstandingAmount>'+\r",
+									"'            <TotalExecutableAmount>'+\r",
+									"'                <TotalAmount>84.7</TotalAmount>'+\r",
+									"'            </TotalExecutableAmount>'+\r",
+									"'            <InvoiceCurrencyCode>EUR</InvoiceCurrencyCode>'+\r",
+									"'        </Batch>'+\r",
+									"'    </FileHeader>'+\r",
+									"'    <Parties>'+\r",
+									"'        <SellerParty>'+\r",
+									"'            <TaxIdentification>'+\r",
+									"'                <PersonTypeCode>J</PersonTypeCode>'+\r",
+									"'                <ResidenceTypeCode>R</ResidenceTypeCode>'+\r",
+									"'                <TaxIdentificationNumber>ESA00000000</TaxIdentificationNumber>'+\r",
+									"'            </TaxIdentification>'+\r",
+									"'            <LegalEntity>'+\r",
+									"'                <CorporateName>PRUEBA EMPRESA</CorporateName>'+\r",
+									"'                <RegistrationData/>'+\r",
+									"'                <AddressInSpain>'+\r",
+									"'                    <Address>CL</Address>'+\r",
+									"'                    <PostCode>08202</PostCode>'+\r",
+									"'                    <Town>SABADELL</Town>'+\r",
+									"'                    <Province>BARCELONA</Province>'+\r",
+									"'                    <CountryCode>ESP</CountryCode>'+\r",
+									"'                </AddressInSpain>'+\r",
+									"'            </LegalEntity>'+\r",
+									"'        </SellerParty>'+\r",
+									"'        <BuyerParty>'+\r",
+									"'            <TaxIdentification>'+\r",
+									"'                <PersonTypeCode>J</PersonTypeCode>'+\r",
+									"'                <ResidenceTypeCode>R</ResidenceTypeCode>'+\r",
+									"'                <TaxIdentificationNumber>ESB00000000</TaxIdentificationNumber>'+\r",
+									"'            </TaxIdentification>'+\r",
+									"'            <LegalEntity>'+\r",
+									"'                <CorporateName>PRUEBA CLIENTE</CorporateName>'+\r",
+									"'                <AddressInSpain>'+\r",
+									"'                    <Address>CL</Address>'+\r",
+									"'                    <PostCode>08202</PostCode>'+\r",
+									"'                    <Town>SABADELL</Town>'+\r",
+									"'                    <Province>BARCELONA</Province>'+\r",
+									"'                    <CountryCode>ESP</CountryCode>'+\r",
+									"'                </AddressInSpain>'+\r",
+									"'            </LegalEntity>'+\r",
+									"'        </BuyerParty>'+\r",
+									"'    </Parties>'+\r",
+									"'    <Invoices>'+\r",
+									"'        <Invoice>'+\r",
+									"'            <InvoiceHeader>'+\r",
+									"//'                <InvoiceNumber>4</InvoiceNumber>'+\r",
+									"'                <InvoiceSeriesCode>API_SERIE</InvoiceSeriesCode>'+\r",
+									"'                <InvoiceDocumentType>FC</InvoiceDocumentType>'+\r",
+									"'                <InvoiceClass>OO</InvoiceClass>'+\r",
+									"'            </InvoiceHeader>'+\r",
+									"'            <InvoiceIssueData>'+\r",
+									"//'                <IssueDate>2025-07-17+02:00</IssueDate>'+\r",
+									"'                <OperationDate>2025-07-16+02:00</OperationDate>'+\r",
+									"'                <InvoiceCurrencyCode>EUR</InvoiceCurrencyCode>'+\r",
+									"'                <TaxCurrencyCode>EUR</TaxCurrencyCode>'+\r",
+									"'                <LanguageName>es</LanguageName>'+\r",
+									"'            </InvoiceIssueData>'+\r",
+									"'            <TaxesOutputs>'+\r",
+									"'                <Tax>'+\r",
+									"'                    <TaxTypeCode>01</TaxTypeCode>'+\r",
+									"'                    <TaxRate>21</TaxRate>'+\r",
+									"'                    <TaxableBase>'+\r",
+									"'                        <TotalAmount>70</TotalAmount>'+\r",
+									"'                    </TaxableBase>'+\r",
+									"'                    <TaxAmount>'+\r",
+									"'                        <TotalAmount>14.7</TotalAmount>'+\r",
+									"'                    </TaxAmount>'+\r",
+									"'                </Tax>'+\r",
+									"'            </TaxesOutputs>'+\r",
+									"'            <InvoiceTotals>'+\r",
+									"'                <TotalGrossAmount>70</TotalGrossAmount>'+\r",
+									"'                <TotalGrossAmountBeforeTaxes>70</TotalGrossAmountBeforeTaxes>'+\r",
+									"'                <TotalTaxOutputs>14.7</TotalTaxOutputs>'+\r",
+									"'                <TotalTaxesWithheld>0</TotalTaxesWithheld>'+\r",
+									"'                <InvoiceTotal>84.7</InvoiceTotal>'+\r",
+									"'                <TotalOutstandingAmount>84.7</TotalOutstandingAmount>'+\r",
+									"'                <TotalExecutableAmount>84.7</TotalExecutableAmount>'+\r",
+									"'            </InvoiceTotals>'+\r",
+									"'            <Items>'+\r",
+									"'                <InvoiceLine>'+\r",
+									"'                    <ItemDescription>Commanda 1</ItemDescription>'+\r",
+									"'                    <Quantity>1.0</Quantity>'+\r",
+									"'                    <UnitOfMeasure>01</UnitOfMeasure>'+\r",
+									"'                    <UnitPriceWithoutTax>70</UnitPriceWithoutTax>'+\r",
+									"'                    <TotalCost>70</TotalCost>'+\r",
+									"'                    <GrossAmount>70</GrossAmount>'+\r",
+									"'                    <TaxesOutputs>'+\r",
+									"'                        <Tax>'+\r",
+									"'                            <TaxTypeCode>01</TaxTypeCode>'+\r",
+									"'                            <TaxRate>21</TaxRate>'+\r",
+									"'                            <TaxableBase>'+\r",
+									"'                                <TotalAmount>70</TotalAmount>'+\r",
+									"'                            </TaxableBase>'+\r",
+									"'                        </Tax>'+\r",
+									"'                    </TaxesOutputs>'+\r",
+									"'                    <ArticleCode></ArticleCode>'+\r",
+									"'                </InvoiceLine>'+\r",
+									"'            </Items>'+\r",
+									"'            <PaymentDetails>'+\r",
+									"'                <Installment>'+\r",
+									"'                    <InstallmentDueDate>2025-07-17+02:00</InstallmentDueDate>'+\r",
+									"'                    <InstallmentAmount>84.70</InstallmentAmount>'+\r",
+									"'                    <PaymentMeans>04</PaymentMeans>'+\r",
+									"'                </Installment>'+\r",
+									"'            </PaymentDetails>'+\r",
+									"'        </Invoice>'+\r",
+									"'    </Invoices>'+\r",
+									"'</fe:Facturae>';\r",
+									"var facturaeBase64=Buffer.from(facturae,\"utf-8\").toString('base64');\r",
+									"//console.log(facturaeBase64);\r",
+									"var facturaeFromBase64 = Buffer.from(facturaeBase64, 'base64').toString('utf-8');\r",
+									"//console.log(facturaeFromBase64);\r",
+									"\r",
+									"var data = pm.request.body.raw;\r",
+									"var new_body = data.replace(\"base64String\",facturaeBase64);\r",
+									"let body = {\r",
+									"    mode: 'raw',\r",
+									"    raw: new_body,\r",
+									"    options: {\r",
+									"        raw: {\r",
+									"            language: 'xml'\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"pm.request.body.update(body);\r",
+									"console.log(\"body:\"+pm.request.body.raw);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"facturae\": {\r\n    \"fiscalYear\": 2025,\r\n    \"base64\": \"base64String\",\r\n    \"descriptionSII\": \"descripcion objeto de la factura\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/contabilidad/api/invoice/invoiceWithFacturae?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"api",
+								"invoice",
+								"invoiceWithFacturae"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Expedir factura de cliente ampliado",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var facturae=\r",
+									"'<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>'+\r",
+									"'<fe:Facturae xmlns:fe=\"http://www.facturae.es/Facturae/2009/v3.2/Facturae\" xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\">'+\r",
+									"'    <FileHeader>'+\r",
+									"'        <SchemaVersion>3.2.2</SchemaVersion>'+\r",
+									"'        <Modality>I</Modality>'+\r",
+									"'        <InvoiceIssuerType>EM</InvoiceIssuerType>'+\r",
+									"'        <Batch>'+\r",
+									"'            <BatchIdentifier>12345</BatchIdentifier>'+\r",
+									"'            <InvoicesCount>1</InvoicesCount>'+\r",
+									"'            <TotalInvoicesAmount>'+\r",
+									"'                <TotalAmount>84.7</TotalAmount>'+\r",
+									"'            </TotalInvoicesAmount>'+\r",
+									"'            <TotalOutstandingAmount>'+\r",
+									"'                <TotalAmount>84.7</TotalAmount>'+\r",
+									"'            </TotalOutstandingAmount>'+\r",
+									"'            <TotalExecutableAmount>'+\r",
+									"'                <TotalAmount>84.7</TotalAmount>'+\r",
+									"'            </TotalExecutableAmount>'+\r",
+									"'            <InvoiceCurrencyCode>EUR</InvoiceCurrencyCode>'+\r",
+									"'        </Batch>'+\r",
+									"'    </FileHeader>'+\r",
+									"'    <Parties>'+\r",
+									"'        <SellerParty>'+\r",
+									"'            <TaxIdentification>'+\r",
+									"'                <PersonTypeCode>J</PersonTypeCode>'+\r",
+									"'                <ResidenceTypeCode>R</ResidenceTypeCode>'+\r",
+									"'                <TaxIdentificationNumber>ESA00000000</TaxIdentificationNumber>'+\r",
+									"'            </TaxIdentification>'+\r",
+									"'            <LegalEntity>'+\r",
+									"'                <CorporateName>PRUEBA EMPRESA</CorporateName>'+\r",
+									"'                <RegistrationData/>'+\r",
+									"'                <AddressInSpain>'+\r",
+									"'                    <Address>CL</Address>'+\r",
+									"'                    <PostCode>08202</PostCode>'+\r",
+									"'                    <Town>SABADELL</Town>'+\r",
+									"'                    <Province>BARCELONA</Province>'+\r",
+									"'                    <CountryCode>ESP</CountryCode>'+\r",
+									"'                </AddressInSpain>'+\r",
+									"'            </LegalEntity>'+\r",
+									"'        </SellerParty>'+\r",
+									"'        <BuyerParty>'+\r",
+									"'            <TaxIdentification>'+\r",
+									"'                <PersonTypeCode>J</PersonTypeCode>'+\r",
+									"'                <ResidenceTypeCode>R</ResidenceTypeCode>'+\r",
+									"'                <TaxIdentificationNumber>ESB00000000</TaxIdentificationNumber>'+\r",
+									"'            </TaxIdentification>'+\r",
+									"'            <LegalEntity>'+\r",
+									"'                <CorporateName>PRUEBA CLIENTE</CorporateName>'+\r",
+									"'                <AddressInSpain>'+\r",
+									"'                    <Address>CL</Address>'+\r",
+									"'                    <PostCode>08202</PostCode>'+\r",
+									"'                    <Town>SABADELL</Town>'+\r",
+									"'                    <Province>BARCELONA</Province>'+\r",
+									"'                    <CountryCode>ESP</CountryCode>'+\r",
+									"'                </AddressInSpain>'+\r",
+									"'            </LegalEntity>'+\r",
+									"'        </BuyerParty>'+\r",
+									"'    </Parties>'+\r",
+									"'    <Invoices>'+\r",
+									"'        <Invoice>'+\r",
+									"'            <InvoiceHeader>'+\r",
+									"//'                <InvoiceNumber>4</InvoiceNumber>'+\r",
+									"'                <InvoiceSeriesCode>API_SERIE</InvoiceSeriesCode>'+\r",
+									"'                <InvoiceDocumentType>FC</InvoiceDocumentType>'+\r",
+									"'                <InvoiceClass>OO</InvoiceClass>'+\r",
+									"'            </InvoiceHeader>'+\r",
+									"'            <InvoiceIssueData>'+\r",
+									"//'                <IssueDate>2025-07-17+02:00</IssueDate>'+\r",
+									"'                <OperationDate>2025-07-16+02:00</OperationDate>'+\r",
+									"'                <InvoiceCurrencyCode>EUR</InvoiceCurrencyCode>'+\r",
+									"'                <TaxCurrencyCode>EUR</TaxCurrencyCode>'+\r",
+									"'                <LanguageName>es</LanguageName>'+\r",
+									"'            </InvoiceIssueData>'+\r",
+									"'            <TaxesOutputs>'+\r",
+									"'                <Tax>'+\r",
+									"'                    <TaxTypeCode>01</TaxTypeCode>'+\r",
+									"'                    <TaxRate>21</TaxRate>'+\r",
+									"'                    <TaxableBase>'+\r",
+									"'                        <TotalAmount>70</TotalAmount>'+\r",
+									"'                    </TaxableBase>'+\r",
+									"'                    <TaxAmount>'+\r",
+									"'                        <TotalAmount>14.7</TotalAmount>'+\r",
+									"'                    </TaxAmount>'+\r",
+									"'                </Tax>'+\r",
+									"'            </TaxesOutputs>'+\r",
+									"'            <InvoiceTotals>'+\r",
+									"'                <TotalGrossAmount>70</TotalGrossAmount>'+\r",
+									"'                <TotalGrossAmountBeforeTaxes>70</TotalGrossAmountBeforeTaxes>'+\r",
+									"'                <TotalTaxOutputs>14.7</TotalTaxOutputs>'+\r",
+									"'                <TotalTaxesWithheld>0</TotalTaxesWithheld>'+\r",
+									"'                <InvoiceTotal>84.7</InvoiceTotal>'+\r",
+									"'                <TotalOutstandingAmount>84.7</TotalOutstandingAmount>'+\r",
+									"'                <TotalExecutableAmount>84.7</TotalExecutableAmount>'+\r",
+									"'            </InvoiceTotals>'+\r",
+									"'            <Items>'+\r",
+									"'                <InvoiceLine>'+\r",
+									"'                    <ItemDescription>Commanda 1</ItemDescription>'+\r",
+									"'                    <Quantity>1.0</Quantity>'+\r",
+									"'                    <UnitOfMeasure>01</UnitOfMeasure>'+\r",
+									"'                    <UnitPriceWithoutTax>70</UnitPriceWithoutTax>'+\r",
+									"'                    <TotalCost>70</TotalCost>'+\r",
+									"'                    <GrossAmount>70</GrossAmount>'+\r",
+									"'                    <TaxesOutputs>'+\r",
+									"'                        <Tax>'+\r",
+									"'                            <TaxTypeCode>01</TaxTypeCode>'+\r",
+									"'                            <TaxRate>21</TaxRate>'+\r",
+									"'                            <TaxableBase>'+\r",
+									"'                                <TotalAmount>70</TotalAmount>'+\r",
+									"'                            </TaxableBase>'+\r",
+									"'                        </Tax>'+\r",
+									"'                    </TaxesOutputs>'+\r",
+									"'                    <ArticleCode></ArticleCode>'+\r",
+									"'                </InvoiceLine>'+\r",
+									"'            </Items>'+\r",
+									"'            <PaymentDetails>'+\r",
+									"'                <Installment>'+\r",
+									"'                    <InstallmentDueDate>2025-07-17+02:00</InstallmentDueDate>'+\r",
+									"'                    <InstallmentAmount>84.70</InstallmentAmount>'+\r",
+									"'                    <PaymentMeans>04</PaymentMeans>'+\r",
+									"'                </Installment>'+\r",
+									"'            </PaymentDetails>'+\r",
+									"'        </Invoice>'+\r",
+									"'    </Invoices>'+\r",
+									"'</fe:Facturae>';\r",
+									"var facturaeBase64=Buffer.from(facturae,\"utf-8\").toString('base64');\r",
+									"//console.log(facturaeBase64);\r",
+									"var facturaeFromBase64 = Buffer.from(facturaeBase64, 'base64').toString('utf-8');\r",
+									"//console.log(facturaeFromBase64);\r",
+									"\r",
+									"var data = pm.request.body.raw;\r",
+									"var new_body = data.replace(\"base64String\",facturaeBase64);\r",
+									"let body = {\r",
+									"    mode: 'raw',\r",
+									"    raw: new_body,\r",
+									"    options: {\r",
+									"        raw: {\r",
+									"            language: 'xml'\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"pm.request.body.update(body);\r",
+									"console.log(\"body:\"+pm.request.body.raw);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"facturae\": {\r\n    \"fiscalYear\": 2025,\r\n    \"base64\": \"base64String\",\r\n    \"descriptionSII\": \"descripcion objeto de la factura\",\r\n    \"extra\": {\r\n        \"projectID\": 1,\r\n        \"projectName\": \"Proyecto 1\",\r\n        \"accounts\": {\r\n            \"invoiceLine\": [\r\n                {\r\n                    \"lineNumber\": 1,\r\n                    \"account\": \"70500000\",\r\n                    \"classIVA\": 80\r\n                }\r\n            ]\r\n        }\r\n    }    \r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/contabilidad/api/invoice/invoiceWithFacturae?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"api",
+								"invoice",
+								"invoiceWithFacturae"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Proforma",
+			"item": [
+				{
+					"name": "proforma full",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/proforma/full?companyId={{companyId}}&startDate=01-01-2025&endDate=01-01-2026",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"proforma",
+								"full"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								},
+								{
+									"key": "startDate",
+									"value": "01-01-2025",
+									"description": "\n"
+								},
+								{
+									"key": "endDate",
+									"value": "01-01-2026"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "proforma",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/proforma/78?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"proforma",
+								"78"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "proforma lista paginada",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/proforma/?startDate=01-01-2023&endDate=01-01-2026&companyId={{companyId}}&page=2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"proforma",
+								""
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "01-01-2023"
+								},
+								{
+									"key": "endDate",
+									"value": "01-01-2026"
+								},
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtener pdf",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/proforma/pdf?companyId={{companyId}}&id=78",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"proforma",
+								"pdf"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "C",
+									"disabled": true
+								},
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								},
+								{
+									"key": "id",
+									"value": "78"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtener pdf en Base64",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/proforma/pdfB64?id=78&companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"proforma",
+								"pdfB64"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "78"
+								},
+								{
+									"key": "type",
+									"value": "C",
+									"disabled": true
+								},
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtener documento dentro de respuesta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/proforma/document?id=78&companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"proforma",
+								"document"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "78"
+								},
+								{
+									"key": "type",
+									"value": "C",
+									"disabled": true
+								},
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear factura proforma",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerProviderId\": 2,\r\n    \"operationDate\": \"11/10/2025\",\r\n    \"invoiceDate\": \"12/10/2025\",    \r\n    \"totalAmountWithoutTaxes\": 70.0,\r\n    \"totalAmount\": 84.7,\r\n    \"paymentMethod\": 4,\r\n    \"bankId\": 2,\r\n    \"activityId\": 4672,\r\n    \"comments\": \"comentarios\",\r\n    \"tax\": [\r\n        {\r\n            \"taxType\": \"G\",\r\n            \"taxableBase\": 70.0,\r\n            \"percentage\": 21.0,\r\n            \"amount\": 14.7,\r\n            \"taxSubType\": 0,\r\n            \"taxable\": \"S\",\r\n            \"exempt\": \"N\",\r\n            \"goodServices\": \"S\",\r\n            \"taxInversion\": \"S\",\r\n            \"reason\": \"\",\r\n            \"calification\": \"S1\",\r\n            \"account\": \"70000000\",\r\n            \"clase390\": 0,\r\n            \"includeIS\": true,\r\n            \"codigo\": 21\r\n        }\r\n    ],\r\n    \"line\": [{\r\n        \"description\": \"comanda con referencia 3\",\r\n        \"quantity\": 1.0,\r\n        \"amount\": 84.7,\r\n        \"base\": 70.0,\r\n        \"reference\": \"ref3\",\r\n        \"referenceType\": \"S\",\r\n        \"discount\": 0.0,\r\n        \"percentage\": 21.0,\r\n        \"class390\": 0,\r\n        \"taxCode\": 21\r\n        }\r\n    ],\r\n    \"installment\": [\r\n        {\r\n            \"date\": \"15/09/2025\",\r\n            \"amount\": 84.7,\r\n            \"collectedPaid\": 0.0\r\n        }\r\n    ],\r\n    \"descriptionSII\": \"factura de prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/proforma?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"proforma"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear factura proforma datos mínimos",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerProviderId\": 2,\r\n    \"totalAmountWithoutTaxes\": 100.00,\r\n    \"totalAmount\": 121.00,\r\n    \"line\": [{\r\n        \"description\": \"Commanda 1\",\r\n        \"quantity\": 1,\r\n        \"amount\": 121,\r\n        \"base\": 100.0,\r\n        \"discount\": 0,\r\n        \"percentage\": 21.0,\r\n        \"class390\": 0,\r\n        \"taxCode\": 21\r\n        }\r\n    ],\r\n    \"installment\": [{\r\n            \"date\": \"22/09/2025\",\r\n            \"amount\": 121.00\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/proforma?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"proforma"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear factura proforma datos mínimos con datos cliente",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"totalAmountWithoutTaxes\": 100.00,\r\n    \"totalAmount\": 121.00,\r\n    \"line\": [{\r\n        \"description\": \"Commanda 1\",\r\n        \"quantity\": 1,\r\n        \"amount\": 121,\r\n        \"base\": 100.0,\r\n        \"discount\": 0,\r\n        \"percentage\": 21.0,\r\n        \"class390\": 0,\r\n        \"taxCode\": 21\r\n        }\r\n    ],\r\n    \"installment\": [{\r\n            \"date\": \"22/09/2025\",\r\n            \"amount\": 121.00\r\n        }\r\n    ],\r\n    \"customer\": {\r\n         \"nif\": \"B00000033\",\r\n        \"name\": \"nombre\",\r\n        \"cityCode\": \"08100\"\r\n    }    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/proforma?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"proforma"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear factura proforma con iva 10 e irpf",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerProviderId\": 2,\r\n    \"totalAmountWithoutTaxes\": 70.0,\r\n    \"totalAmount\": 63.7,\r\n    \"paymentMethod\": 4,\r\n    \"bankId\": 2,\r\n    \"activityId\": 4672,\r\n    \"comments\": \"comentarios\",\r\n    \"invoiceDate\": \"12/10/2025\",\r\n    \"operationDate\": \"11/10/2025\",\r\n    \"irpfTaxCode\": 19,\r\n    \"irpfTaxPercentage\": 19.0,\r\n    \"line\": [{\r\n        \"description\": \"ref 5 desc\",\r\n        \"quantity\": 1.0,\r\n        \"amount\": 77,\r\n        \"base\": 70.0,\r\n        \"reference\": \"ref_5\",\r\n        \"referenceType\": \"S\",\r\n        \"discount\": 0.0,\r\n        \"percentage\": 10.0,\r\n        \"account\": null,\r\n        \"class390\": 0,\r\n        \"taxCode\": 10\r\n        }\r\n    ],\r\n    \"installment\": [\r\n        {\r\n            \"date\": \"15/09/2025\",\r\n            \"amount\": 63.7,\r\n            \"collectedPaid\": 0.0\r\n        }\r\n    ],\r\n   \"descriptionSII\": \"descripcion del objeto de la factura\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/proforma?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"proforma"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear factura proforma en formato XML",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<ProformaInvoice>\r\n    <customerProviderId>2</customerProviderId>\r\n    <totalAmountWithoutTaxes>100</totalAmountWithoutTaxes>\r\n    <totalAmount>121</totalAmount>\r\n    <line>\r\n        <description>Commanda 1</description>\r\n        <quantity>1</quantity>\r\n        <amount>121</amount>\r\n        <base>100</base>\r\n        <discount>0</discount>\r\n        <percentage>21</percentage>\r\n        <class390>0</class390>\r\n        <taxCode>21</taxCode>\r\n    </line>\r\n    <installment>\r\n        <date>22/09/2025</date>\r\n        <amount>121</amount>\r\n    </installment>\r\n    <descriptionSII>factura de prueba</descriptionSII>\r\n</ProformaInvoice>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/proforma?companyId={{companyId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"proforma"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clientes y proveedores",
+			"item": [
+				{
+					"name": "Clientes",
+					"item": [
+						{
+							"name": "obtener lista de clientes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/contabilidad/ws/customer/?companyId={{companyId}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"contabilidad",
+										"ws",
+										"customer",
+										""
+									],
+									"query": [
+										{
+											"key": "companyId",
+											"value": "{{companyId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "obtener cliente por id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/contabilidad/ws/customer/2?companyId={{companyId}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"contabilidad",
+										"ws",
+										"customer",
+										"2"
+									],
+									"query": [
+										{
+											"key": "companyId",
+											"value": "{{companyId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "obtener cliente por nif",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/contabilidad/ws/customer/nif/B00000000?companyId={{companyId}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"contabilidad",
+										"ws",
+										"customer",
+										"nif",
+										"B00000000"
+									],
+									"query": [
+										{
+											"key": "companyId",
+											"value": "{{companyId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear cliente",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nif\": \"00000006s\",\r\n  \"name\": \"nombre\",\r\n  \"countryISO\": \"ES\",\r\n  \"email\": \"emailexample@gmail.com\",\r\n  \"phone\": \"641112222\",\r\n  \"streetType\": \"CR\",\r\n  \"streetName\": \"Name of street\",\r\n  \"streetNumber\": \"10\",\r\n  \"staircase\": \"escalera\",\r\n  \"floor\": \"piso\",\r\n  \"room\": \"puerta\",\r\n  \"postCode\": \"71727\",\r\n  \"cityCode\": \"08100\",\r\n  \"iban\": \"ES92 2100 1111 2222 3333 4444\",\r\n  \"swift\": \"CAIX ES BB 001\",\r\n  \"paymentMethod\": \"1\",\r\n  \"family\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/contabilidad/ws/customer?companyId={{companyId}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"contabilidad",
+										"ws",
+										"customer"
+									],
+									"query": [
+										{
+											"key": "companyId",
+											"value": "{{companyId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear cliente datos mínimos",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nif\": \"00000011s\",\r\n  \"name\": \"nombre\",\r\n  \"cityCode\": \"08100\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/contabilidad/ws/customer?companyId={{companyId}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"contabilidad",
+										"ws",
+										"customer"
+									],
+									"query": [
+										{
+											"key": "companyId",
+											"value": "{{companyId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear cliente extranjero",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nif\": \"123456789A\",\r\n  \"name\": \"nombre\",\r\n  \"countryISO\": \"BE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/contabilidad/ws/customer?companyId={{companyId}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"contabilidad",
+										"ws",
+										"customer"
+									],
+									"query": [
+										{
+											"key": "companyId",
+											"value": "{{companyId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Proveedores",
+					"item": [
+						{
+							"name": "obtener proveedor por id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/contabilidad/ws/provider/2?companyId={{companyId}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"contabilidad",
+										"ws",
+										"provider",
+										"2"
+									],
+									"query": [
+										{
+											"key": "companyId",
+											"value": "{{companyId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "obtener proveedor por nif",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/contabilidad/ws/provider/nif/B00000000?companyId={{companyId}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"contabilidad",
+										"ws",
+										"provider",
+										"nif",
+										"B00000000"
+									],
+									"query": [
+										{
+											"key": "companyId",
+											"value": "{{companyId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "obtener lista de proveedores",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/contabilidad/ws/provider/?companyId={{companyId}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"contabilidad",
+										"ws",
+										"provider",
+										""
+									],
+									"query": [
+										{
+											"key": "companyId",
+											"value": "{{companyId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear proveedor",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nif\": \"00000005s\",\r\n  \"name\": \"nombre\",\r\n  \"countryISO\": \"ES\",\r\n  \"email\": \"emailexample@gmail.com\",\r\n  \"phone\": \"641112222\",\r\n  \"streetType\": \"CR\",\r\n  \"streetName\": \"Name of street\",\r\n  \"streetNumber\": \"10\",\r\n  \"staircase\": \"escalera\",\r\n  \"floor\": \"piso\",\r\n  \"room\": \"puerta\",\r\n  \"postCode\": \"71727\",\r\n  \"cityCode\": \"08100\",\r\n  \"iban\": \"ES92 2100 1111 2222 3333 4444\",\r\n  \"swift\": \"CAIX ES BB 001\",\r\n  \"paymentMethod\": \"1\",\r\n  \"family\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/contabilidad/ws/provider?companyId={{companyId}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"contabilidad",
+										"ws",
+										"provider"
+									],
+									"query": [
+										{
+											"key": "companyId",
+											"value": "{{companyId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear proveedor extranjero",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nif\": \"123456789A\",\r\n  \"name\": \"nombre\",\r\n  \"countryISO\": \"BE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/contabilidad/ws/provider?companyId={{companyId}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"contabilidad",
+										"ws",
+										"provider"
+									],
+									"query": [
+										{
+											"key": "companyId",
+											"value": "{{companyId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear proveedor con datos mínimos",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nif\": \"00000012s\",\r\n  \"name\": \"nombre\",\r\n  \"cityCode\": \"26071\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/contabilidad/ws/provider?companyId={{companyId}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"contabilidad",
+										"ws",
+										"provider"
+									],
+									"query": [
+										{
+											"key": "companyId",
+											"value": "{{companyId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "obtener facturas",
+			"item": [
+				{
+					"name": "invoice full",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/invoice/full?companyId={{companyId}}&type=C&startDate=01-01-2023&endDate=01-12-2025",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"invoice",
+								"full"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								},
+								{
+									"key": "type",
+									"value": "C"
+								},
+								{
+									"key": "startDate",
+									"value": "01-01-2023",
+									"description": "\n"
+								},
+								{
+									"key": "endDate",
+									"value": "01-12-2025"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invoice",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/contabilidad/ws/invoice/?companyId={{companyId}}&type=C&startDate=01-01-2023&endDate=01-12-2025&page=22",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"contabilidad",
+								"ws",
+								"invoice",
+								""
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "{{companyId}}"
+								},
+								{
+									"key": "type",
+									"value": "C"
+								},
+								{
+									"key": "startDate",
+									"value": "01-01-2023"
+								},
+								{
+									"key": "endDate",
+									"value": "01-12-2025"
+								},
+								{
+									"key": "page",
+									"value": "22"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "API-KEY {{API-KEY}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API-KEY",
+			"value": ""
+		},
+		{
+			"key": "companyId",
+			"value": ""
+		},
+		{
+			"key": "host",
+			"value": ""
+		}
+	]
+}
