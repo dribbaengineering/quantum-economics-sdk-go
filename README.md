@@ -149,6 +149,7 @@ QUANTUM_API_KEY=... QUANTUM_COMPANY_ID=28218 go run ./examples/issue_invoice
 - [Content negotiation (JSON / XML)](docs/content-negotiation.md)
 - [Architecture & design](docs/architecture.md)
 - [Endpoint coverage](docs/endpoints.md)
+- [Changelog](CHANGELOG.md)
 
 ## Design
 
