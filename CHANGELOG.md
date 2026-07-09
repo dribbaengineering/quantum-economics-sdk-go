@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-07-09
+
+### Fixed
+
+- Corrected the `CityCode` documentation on `City`, `Customer` and `Provider`:
+  it is Quantum's own locality code (the GeoNames geonameId for Andorra; a
+  Quantum-internal code, not the raw INE municipality code, for Spain) — not
+  the INE code as previously stated.
+
+## [0.2.0] - 2026-07-09
+
 ### Added
 
 - **`Cities` service** — resolves a locality to the `cityCode` required when
@@ -48,5 +59,7 @@ accounting and billing API, covering all documented endpoints.
   documentation under `docs/` (authentication, error handling, content
   negotiation, architecture and full endpoint coverage).
 
-[Unreleased]: https://github.com/dribbaengineering/quantum-economics-sdk-go/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/dribbaengineering/quantum-economics-sdk-go/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/dribbaengineering/quantum-economics-sdk-go/compare/v0.2.0...v0.2.1
+[0.2.0]: https://github.com/dribbaengineering/quantum-economics-sdk-go/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/dribbaengineering/quantum-economics-sdk-go/releases/tag/v0.1.0

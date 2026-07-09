@@ -7,9 +7,10 @@ import (
 )
 
 // City is a locality record returned by the city lookup endpoints. CityCode is
-// the value Quantum expects in Customer.CityCode / Provider.CityCode: the INE
-// municipality code for Spanish localities, and the GeoNames geonameId for
-// Andorran ones.
+// the value Quantum expects in Customer.CityCode / Provider.CityCode. It is
+// Quantum's own locality code: the GeoNames geonameId for Andorran localities,
+// and a Quantum-internal code (not the raw INE municipality code) for Spanish
+// ones.
 type City struct {
 	CityName     string `json:"cityName" xml:"cityName"`
 	CityCode     string `json:"cityCode" xml:"cityCode"`

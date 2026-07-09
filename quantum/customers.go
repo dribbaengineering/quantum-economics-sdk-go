@@ -31,7 +31,9 @@ type Customer struct {
 	Floor        string `json:"floor,omitempty" xml:"floor,omitempty"`
 	Room         string `json:"room,omitempty" xml:"room,omitempty"`
 	PostCode     string `json:"postCode,omitempty" xml:"postCode,omitempty"`
-	// CityCode is the INE municipality code. Required for domestic customers.
+	// CityCode is Quantum's own locality code (the GeoNames geonameId for
+	// Andorra; a Quantum-internal code, not the raw INE code, for Spain).
+	// Required for domestic customers; resolve it with the Cities service.
 	CityCode string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
 
 	IBAN          string `json:"iban,omitempty" xml:"iban,omitempty"`
