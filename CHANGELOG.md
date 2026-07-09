@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **`Cities` service** — resolves a locality to the `cityCode` required when
+  creating a domestic customer/provider: `SearchByZipCode` (by postal code),
+  `Search` (by name) and `SearchByCode` (reverse lookup). NOTE: the underlying
+  `/city` endpoints are not part of Quantum's published API contract (they are
+  absent from the Swagger/Postman spec) and may change without notice; they are
+  provided because no documented endpoint resolves a `cityCode`.
+
 ## [0.1.0] - 2026-07-07
 
 Initial release: a dependency-free Go client for the Quantum Economics

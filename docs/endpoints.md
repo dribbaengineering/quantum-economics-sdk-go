@@ -55,6 +55,18 @@ Paths are relative to `https://app.quantumeconomics.es/contabilidad/ws`.
 | `GetByNIF` | GET | `/provider/nif/{id}` |
 | `Create` | POST | `/provider` |
 
+## Cities — `client.Cities`
+
+Resolve a locality to the `cityCode` used by `Customer` / `Provider`. These
+`/city` endpoints are **not** part of the published API contract (absent from
+the Swagger/Postman spec) and may change without notice.
+
+| Method | HTTP | Path |
+| --- | --- | --- |
+| `SearchByZipCode` | GET | `/city/searchByZipCode` |
+| `SearchByCode` | GET | `/city/searchByCode` |
+| `Search` | GET | `/city/search` |
+
 ## Companies — `client.Companies`
 
 | Method | HTTP | Path |

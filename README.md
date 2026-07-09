@@ -104,6 +104,7 @@ The client exposes one service per API domain:
 | `client.Proforma` | Pro forma invoices |
 | `client.Customers` | Customers (clientes) |
 | `client.Providers` | Suppliers (proveedores) |
+| `client.Cities` | Locality → cityCode lookup (undocumented endpoints) |
 | `client.Companies` | Companies accessible to the key |
 | `client.Banks` | Bank accounts, cash registers and movements |
 | `client.Accounts` | Ledger accounts and accounting plan |
