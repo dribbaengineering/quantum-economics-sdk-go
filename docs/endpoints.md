@@ -66,6 +66,24 @@ the Swagger/Postman spec) and may change without notice.
 | `SearchByZipCode` | GET | `/city/searchByZipCode` |
 | `SearchByCode` | GET | `/city/searchByCode` |
 | `Search` | GET | `/city/search` |
+| `SearchInProvince` | GET | `/city/search` |
+
+Searching **by name in Spain requires a province**: `/city/search` answers
+HTTP 400 with Quantum error 114 (`Provincia no informado`) unless a `province`
+query parameter carries the two-digit province code. Use `SearchInProvince`
+with a code from `client.Provinces`; Andorra needs no province, so plain
+`Search` works there. Note the parameter is `province` (not `provinceCode`) and
+it expects the code — passing a province *name* returns an empty list.
+
+## Provinces — `client.Provinces`
+
+Lists a country's provinces, supplying the province code that a Spanish city
+search requires. Like `/city`, the `/provinces` endpoint is **not** part of the
+published API contract and may change without notice.
+
+| Method | HTTP | Path |
+| --- | --- | --- |
+| `List` | GET | `/provinces` |
 
 ## Companies — `client.Companies`
 

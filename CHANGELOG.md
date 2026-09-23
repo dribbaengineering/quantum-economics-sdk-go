@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-09-23
+
+### Added
+
+- **`Provinces` service** — `List` returns a country's provinces
+  (`provinceName` / `provinceCode`). Like the `/city` family, the `/provinces`
+  endpoint is not part of Quantum's published API contract and may change
+  without notice; it is provided because a Spanish city-name search cannot be
+  performed without a province code.
+- **`Cities.SearchInProvince`** — city-name search narrowed to one province.
+
+### Fixed
+
+- `Cities.Search` could not be used for Spain: Quantum rejects an ES city-name
+  search that carries no province with HTTP 400 and error 114 (`Provincia no
+  informado`). Pass a two-digit province code (from `Provinces.List`) to
+  `SearchInProvince`. `Search` keeps its existing signature and behaviour —
+  Andorra, which needs no province, is unaffected.
+
 ## [0.2.1] - 2026-07-09
 
 ### Fixed

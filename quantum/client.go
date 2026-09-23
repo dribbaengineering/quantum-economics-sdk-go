@@ -41,6 +41,7 @@ type Client struct {
 	Customers     *CustomersService
 	Providers     *ProvidersService
 	Cities        *CitiesService
+	Provinces     *ProvincesService
 	Companies     *CompaniesService
 	Banks         *BanksService
 	Accounts      *AccountsService
@@ -120,6 +121,7 @@ func (c *Client) registerServices() {
 	c.Customers = &CustomersService{client: c}
 	c.Providers = &ProvidersService{client: c}
 	c.Cities = &CitiesService{client: c}
+	c.Provinces = &ProvincesService{client: c}
 	c.Companies = &CompaniesService{client: c}
 	c.Banks = &BanksService{client: c}
 	c.Accounts = &AccountsService{client: c}

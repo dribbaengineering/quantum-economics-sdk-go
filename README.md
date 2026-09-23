@@ -105,6 +105,7 @@ The client exposes one service per API domain:
 | `client.Customers` | Customers (clientes) |
 | `client.Providers` | Suppliers (proveedores) |
 | `client.Cities` | Locality → cityCode lookup (undocumented endpoints) |
+| `client.Provinces` | Province list, for the province code an ES city search needs (undocumented endpoint) |
 | `client.Companies` | Companies accessible to the key |
 | `client.Banks` | Bank accounts, cash registers and movements |
 | `client.Accounts` | Ledger accounts and accounting plan |

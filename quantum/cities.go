@@ -55,10 +55,26 @@ func (s *CitiesService) SearchByCode(ctx context.Context, countryISO, cityCode s
 
 // Search returns the localities whose name matches query, in the given country.
 // The server-side match is case- and accent-sensitive.
+//
+// Spain requires a province: calling this for country ES returns HTTP 400 with
+// Quantum error 114 ("Provincia no informado"). Use SearchInProvince with a
+// province code from ProvincesService.List for ES; Andorra needs no province.
 func (s *CitiesService) Search(ctx context.Context, countryISO, query string) (*CityListResponse, error) {
+	return s.SearchInProvince(ctx, countryISO, query, "")
+}
+
+// SearchInProvince is Search narrowed to one province. provinceCode is the
+// two-digit code as returned by ProvincesService.List (e.g. "08" for Barcelona);
+// when empty the province filter is omitted, which only works for countries that
+// do not require one (Andorra).
+//
+// The province parameter is mandatory for Spain — Quantum rejects an ES name
+// search without it (error 114, "Provincia no informado").
+func (s *CitiesService) SearchInProvince(ctx context.Context, countryISO, query, provinceCode string) (*CityListResponse, error) {
 	return s.get(ctx, "/city/search", newQuery().
 		setString("country", strings.ToUpper(countryISO)).
-		setString("query", query))
+		setString("query", query).
+		setStringOpt("province", provinceCode))
 }
 
 func (s *CitiesService) get(ctx context.Context, path string, q *queryBuilder) (*CityListResponse, error) {
